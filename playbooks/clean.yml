@@ -1,0 +1,17 @@
+---
+  - hosts: localhost
+    gather_facts: no
+
+    tasks:
+    - name: Remove Tenant With Configurations
+      aci_tenant:
+        hostname: "{{ aci_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: no
+        tenant: "{{ tenant }}"
+        description: "{{ description }}"
+        state: absent
+
+    vars_files:
+      - "../vars/common.yml"

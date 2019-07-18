@@ -1,0 +1,161 @@
+---
+  - hosts: localhost
+    gather_facts: no
+
+    tasks:
+    - name: Registering New Tenant
+      aci_tenant:
+        hostname: "{{ aci_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: no
+        tenant: "{{ tenant }}"
+        description: "{{ description }}"
+        state: present
+    
+    - name: Adding VRF To The Tenant
+      aci_vrf:
+        hostname: "{{ aci_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: no
+        tenant: "{{ tenant }}"
+        vrf: "{{ vrf }}"
+        descr: "{{ description }}"
+        policy_control_preference: enforced
+        policy_control_direction: ingress
+        state: present
+
+    - name: Adding Bridge Domain For Load Balancer
+      aci_bd:
+        hostname: "{{ aci_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: no
+        tenant: "{{ tenant }}"
+        vrf: "{{ vrf }}"
+        bd: "{{ lb_bridge_domain }}"
+        # mac_address: 00:22:BD:F8:19:F0
+        state: present
+
+    - name: Adding Bridge Domain For Application Server
+      aci_bd:
+        hostname: "{{ aci_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: no
+        tenant: "{{ tenant }}"
+        vrf: "{{ vrf }}"
+        bd: "{{ app_bridge_domain }}"
+        # mac_address: 00:22:BD:F8:19:F2
+        state: present
+
+    - name: Adding Bridge Domain For Database Server
+      aci_bd:
+        hostname: "{{ aci_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: no
+        tenant: "{{ tenant }}"
+        vrf: "{{ vrf }}"
+        bd: "{{ db_bridge_domain }}"
+        # mac_address: 00:22:BD:F8:19:F4
+        state: present
+
+    - name: Registering Application Profile
+      aci_ap:
+        hostname: "{{ aci_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: no
+        tenant: "{{ tenant }}"
+        ap: "{{ application_profile }}"
+        description: "{{ description }}"
+        state: present
+
+    - name: Adding EPG For Load Balancer
+      aci_epg:
+        hostname: "{{ aci_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: no
+        tenant: "{{ tenant }}"
+        ap: "{{ application_profile }}"
+        bd: "{{ lb_bridge_domain }}"
+        epg: "{{ lb_epg }}"
+        description: "{{ description }}"
+        preferred_group: yes
+        state: present
+
+    - name: Adding EPG For App Server
+      aci_epg:
+        hostname: "{{ aci_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: no
+        tenant: "{{ tenant }}"
+        ap: "{{ application_profile }}"
+        bd: "{{ app_bridge_domain }}"
+        epg: "{{ app_epg }}"
+        description: "{{ description }}"
+        preferred_group: yes
+        state: present
+    
+    - name: Adding EPG For Database Server
+      aci_epg:
+        hostname: "{{ aci_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: no
+        tenant: "{{ tenant }}"
+        ap: "{{ application_profile }}"
+        bd: "{{ db_bridge_domain }}"
+        epg: "{{ db_epg }}"
+        description: "{{ description }}"
+        preferred_group: yes
+        state: present
+
+    - name: Associate VMM Domain With Load Balancer EPG
+      aci_epg_to_domain:
+        hostname: "{{ aci_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: no
+        tenant: "{{ tenant }}"
+        ap: "{{ application_profile }}"
+        epg: "{{ lb_epg }}"
+        domain: "{{ vmm_domain }}"
+        domain_type: vmm
+        vm_provider: "{{ vm_provider }}"
+        state: present
+
+    - name: Associate VMM Domain With Application Server EPG
+      aci_epg_to_domain:
+        hostname: "{{ aci_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: no
+        tenant: "{{ tenant }}"
+        ap: "{{ application_profile }}"
+        epg: "{{ app_epg }}"
+        domain: "{{ vmm_domain }}"
+        domain_type: vmm
+        vm_provider: "{{ vm_provider }}"
+        state: present
+
+    - name: Associate VMM Domain With Database Server EPG
+      aci_epg_to_domain:
+        hostname: "{{ aci_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: no
+        tenant: "{{ tenant }}"
+        ap: "{{ application_profile }}"
+        epg: "{{ db_epg }}"
+        domain: "{{ vmm_domain }}"
+        domain_type: vmm
+        vm_provider: "{{ vm_provider }}"
+        state: present
+
+    vars_files:
+      - "../vars/common.yml"

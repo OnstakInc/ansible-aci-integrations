@@ -1,0 +1,21 @@
+---
+# aci_host: <aci-hostname>
+# username: <your-username>
+# password: <your-password>
+
+tenant: HX-ACI-Integrations
+vrf: HX-ACI-VRF
+application_profile: HX-USER-AP
+
+lb_bridge_domain: LB-BD
+app_bridge_domain: APP-BD
+db_bridge_domain: DB-BD
+
+lb_epg: LB-EPG
+app_epg: APP-EPG
+db_epg: DB-EPG
+
+vmm_domain: HX-ACI-vDS
+vm_provider: vmware
+
+description: Managed By Ansible
