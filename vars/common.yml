@@ -11,6 +11,12 @@ lb_bridge_domain: LB-BD
 app_bridge_domain: APP-BD
 db_bridge_domain: DB-BD
 
+lb_bridge_domain_subnet: 192.168.11.1
+app_bridge_domain_subnet: 192.168.12.1
+db_bridge_domain_subnet: 192.168.13.1
+
+bridge_domain_l3_out: L3-OUT
+
 lb_epg: LB-EPG
 app_epg: APP-EPG
 db_epg: DB-EPG

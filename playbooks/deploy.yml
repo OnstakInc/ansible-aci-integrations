@@ -157,5 +157,50 @@
         vm_provider: "{{ vm_provider }}"
         state: present
 
+    - name: Create Bridge Domain Subnet For Load Balancer
+      aci_bd_subnet:
+        hostname: "{{ aci_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        tenant: "{{ tenant }}"
+        bd: "{{ lb_bridge_domain }}"
+        subnet_name: lb-subnet
+        gateway: "{{ lb_bridge_domain_subnet }}"
+        mask: 24
+        description: Managed By Ansible
+        scope: public
+        route_profile_l3_out: "{{ bridge_domain_l3_out }}"
+        state: present
+
+    - name: Create Bridge Domain Subnet For Application Server
+      aci_bd_subnet:
+        hostname: "{{ aci_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        tenant: "{{ tenant }}"
+        bd: "{{ lb_bridge_domain }}"
+        subnet_name: app-subnet
+        gateway: "{{ app_bridge_domain_subnet }}"
+        mask: 24
+        description: Managed By Ansible
+        scope: public
+        route_profile_l3_out: "{{ bridge_domain_l3_out }}"
+        state: present
+
+    - name: Create Bridge Domain Subnet For Database Server
+      aci_bd_subnet:
+        hostname: "{{ aci_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        tenant: "{{ tenant }}"
+        bd: "{{ lb_bridge_domain }}"
+        subnet_name: db-subnet
+        gateway: "{{ db_bridge_domain_subnet }}"
+        mask: 24
+        description: Managed By Ansible
+        scope: public
+        route_profile_l3_out: "{{ bridge_domain_l3_out }}"
+        state: present
+
     vars_files:
       - "../vars/common.yml"
