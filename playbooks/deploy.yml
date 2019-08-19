@@ -38,22 +38,6 @@
         # mac_address: 00:22:BD:F8:19:F0
         state: present
 
-    - name: Create Bridge Domain Subnet For Load Balancer
-      aci_bd_subnet:
-        hostname: "{{ aci_host }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
-        validate_certs: no
-        tenant: "{{ tenant }}"
-        bd: "{{ lb_bridge_domain }}"
-        # subnet_name: lb
-        gateway: "{{ lb_bridge_domain_subnet }}"
-        mask: 24
-        # description: Managed By Ansible
-        # scope: public
-        # route_profile_l3_out: "{{ bridge_domain_l3_out }}"
-        state: present
-
     - name: Adding Bridge Domain For Application Server
       aci_bd:
         hostname: "{{ aci_host }}"
@@ -173,7 +157,7 @@
         vm_provider: "{{ vm_provider }}"
         state: present
 
-    - name: Create Bridge Domain Subnet For Application Server
+    - name: Create Bridge Domain Subnet For Load Balancer
       aci_bd_subnet:
         hostname: "{{ aci_host }}"
         username: "{{ username }}"
@@ -181,12 +165,28 @@
         validate_certs: no
         tenant: "{{ tenant }}"
         bd: "{{ lb_bridge_domain }}"
-        # subnet_name: app
+        subnet_name: lb-subnet
+        gateway: "{{ lb_bridge_domain_subnet }}"
+        mask: 24
+        description: Managed By Ansible
+        scope: public
+        route_profile_l3_out: "{{ bridge_domain_l3_out }}"
+        state: present
+
+    - name: Create Bridge Domain Subnet For Application Server
+      aci_bd_subnet:
+        hostname: "{{ aci_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: no
+        tenant: "{{ tenant }}"
+        bd: "{{ app_bridge_domain }}"
+        subnet_name: app-subnet
         gateway: "{{ app_bridge_domain_subnet }}"
         mask: 24
         description: Managed By Ansible
         scope: public
-        # route_profile_l3_out: "{{ bridge_domain_l3_out }}"
+        route_profile_l3_out: "{{ bridge_domain_l3_out }}"
         state: present
 
     - name: Create Bridge Domain Subnet For Database Server
@@ -196,13 +196,13 @@
         password: "{{ password }}"
         validate_certs: no
         tenant: "{{ tenant }}"
-        bd: "{{ lb_bridge_domain }}"
-        # subnet_name: db
+        bd: "{{ db_bridge_domain }}"
+        subnet_name: db-subnet
         gateway: "{{ db_bridge_domain_subnet }}"
         mask: 24
         description: Managed By Ansible
         scope: public
-        # route_profile_l3_out: "{{ bridge_domain_l3_out }}"
+        route_profile_l3_out: "{{ bridge_domain_l3_out }}"
         state: present
 
     vars_files:
