@@ -162,6 +162,7 @@
         hostname: "{{ aci_host }}"
         username: "{{ username }}"
         password: "{{ password }}"
+        validate_certs: no
         tenant: "{{ tenant }}"
         bd: "{{ lb_bridge_domain }}"
         subnet_name: lb-subnet
@@ -177,6 +178,7 @@
         hostname: "{{ aci_host }}"
         username: "{{ username }}"
         password: "{{ password }}"
+        validate_certs: no
         tenant: "{{ tenant }}"
         bd: "{{ lb_bridge_domain }}"
         subnet_name: app-subnet
@@ -192,6 +194,7 @@
         hostname: "{{ aci_host }}"
         username: "{{ username }}"
         password: "{{ password }}"
+        validate_certs: no
         tenant: "{{ tenant }}"
         bd: "{{ lb_bridge_domain }}"
         subnet_name: db-subnet
