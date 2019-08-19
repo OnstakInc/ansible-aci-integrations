@@ -170,7 +170,7 @@
         mask: 24
         description: Managed By Ansible
         scope: public
-        route_profile_l3_out: "{{ bridge_domain_l3_out }}"
+        # route_profile_l3_out: "{{ bridge_domain_l3_out }}"
         state: present
 
     - name: Create Bridge Domain Subnet For Application Server
@@ -186,7 +186,7 @@
         mask: 24
         description: Managed By Ansible
         scope: public
-        route_profile_l3_out: "{{ bridge_domain_l3_out }}"
+        # route_profile_l3_out: "{{ bridge_domain_l3_out }}"
         state: present
 
     - name: Create Bridge Domain Subnet For Database Server
@@ -202,7 +202,7 @@
         mask: 24
         description: Managed By Ansible
         scope: public
-        route_profile_l3_out: "{{ bridge_domain_l3_out }}"
+        # route_profile_l3_out: "{{ bridge_domain_l3_out }}"
         state: present
 
     vars_files:
