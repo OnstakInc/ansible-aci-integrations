@@ -165,7 +165,7 @@
         validate_certs: no
         tenant: "{{ tenant }}"
         bd: "{{ lb_bridge_domain }}"
-        subnet_name: lb
+        # subnet_name: lb
         gateway: "{{ lb_bridge_domain_subnet }}"
         mask: 24
         description: Managed By Ansible
@@ -181,7 +181,7 @@
         validate_certs: no
         tenant: "{{ tenant }}"
         bd: "{{ lb_bridge_domain }}"
-        subnet_name: app
+        # subnet_name: app
         gateway: "{{ app_bridge_domain_subnet }}"
         mask: 24
         description: Managed By Ansible
@@ -197,7 +197,7 @@
         validate_certs: no
         tenant: "{{ tenant }}"
         bd: "{{ lb_bridge_domain }}"
-        subnet_name: db
+        # subnet_name: db
         gateway: "{{ db_bridge_domain_subnet }}"
         mask: 24
         description: Managed By Ansible
