@@ -3,17 +3,17 @@
 # username: <your-username>
 # password: <your-password>
 
-tenant: Ansible-ACI-Integrations
-vrf: Ansible-ACI-VRF
-application_profile: Ansible-ACI-AP
+tenant: UCSD-ACI-Integrations
+vrf: UCSD-ACI-VRF
+application_profile: UCSD-ACI-AP
 
 lb_bridge_domain: LB-BD
 app_bridge_domain: APP-BD
 db_bridge_domain: DB-BD
 
-lb_bridge_domain_subnet: 192.168.11.1
-app_bridge_domain_subnet: 192.168.12.1
-db_bridge_domain_subnet: 192.168.13.1
+lb_bridge_domain_subnet: 192.168.14.1
+app_bridge_domain_subnet: 192.168.15.1
+db_bridge_domain_subnet: 192.168.16.1
 
 bridge_domain_l3_out: L3-OUT
 
@@ -24,4 +24,27 @@ db_epg: DB-EPG
 vmm_domain: HX-ACI-vDS
 vm_provider: vmware
 
-description: Managed By Ansible
+description: Managed By UCSD
+
+# tenant: Ansible-ACI-Integrations
+# vrf: Ansible-ACI-VRF
+# application_profile: Ansible-ACI-AP
+
+# lb_bridge_domain: LB-BD
+# app_bridge_domain: APP-BD
+# db_bridge_domain: DB-BD
+
+# lb_bridge_domain_subnet: 192.168.11.1
+# app_bridge_domain_subnet: 192.168.12.1
+# db_bridge_domain_subnet: 192.168.13.1
+
+# bridge_domain_l3_out: L3-OUT
+
+# lb_epg: LB-EPG
+# app_epg: APP-EPG
+# db_epg: DB-EPG
+
+# vmm_domain: HX-ACI-vDS
+# vm_provider: vmware
+
+# description: Managed By Ansible
