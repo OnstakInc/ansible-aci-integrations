@@ -128,7 +128,7 @@
         domain_type: vmm
         vm_provider: "{{ vm_provider }}"
         deploy_immediacy: immediate
-        resolution_immediacy: immediate
+        resolution_immediacy: pre-provision
         state: present
 
     - name: Associate HX VMM Domain With Application Server EPG
@@ -144,7 +144,7 @@
         domain_type: vmm
         vm_provider: "{{ vm_provider }}"
         deploy_immediacy: immediate
-        resolution_immediacy: immediate
+        resolution_immediacy: pre-provision
         state: present
 
     - name: Associate HX VMM Domain With Database Server EPG
@@ -160,7 +160,7 @@
         domain_type: vmm
         vm_provider: "{{ vm_provider }}"
         deploy_immediacy: immediate
-        resolution_immediacy: immediate
+        resolution_immediacy: pre-provision
         state: present
 
     - name: Associate VCenter03 VMM Domain With Load Balancer EPG
@@ -176,7 +176,7 @@
         domain_type: vmm
         vm_provider: "{{ vm_provider }}"
         deploy_immediacy: immediate
-        resolution_immediacy: immediate
+        resolution_immediacy: pre-provision
         state: present
 
     - name: Associate VCenter03 VMM Domain With Application Server EPG
@@ -192,7 +192,7 @@
         domain_type: vmm
         vm_provider: "{{ vm_provider }}"
         deploy_immediacy: immediate
-        resolution_immediacy: immediate
+        resolution_immediacy: pre-provision
         state: present
 
     - name: Associate VCenter03 VMM Domain With Database Server EPG
@@ -208,7 +208,7 @@
         domain_type: vmm
         vm_provider: "{{ vm_provider }}"
         deploy_immediacy: immediate
-        resolution_immediacy: immediate
+        resolution_immediacy: pre-provision
         state: present
 
     - name: Create Bridge Domain Subnet For Load Balancer
