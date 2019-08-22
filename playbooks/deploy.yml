@@ -127,6 +127,7 @@
         domain: "{{ vmm_domain }}"
         domain_type: vmm
         vm_provider: "{{ vm_provider }}"
+        resolution_immediacy: immediate
         state: present
 
     - name: Associate VMM Domain With Application Server EPG
@@ -141,6 +142,7 @@
         domain: "{{ vmm_domain }}"
         domain_type: vmm
         vm_provider: "{{ vm_provider }}"
+        resolution_immediacy: immediate
         state: present
 
     - name: Associate VMM Domain With Database Server EPG
@@ -155,6 +157,7 @@
         domain: "{{ vmm_domain }}"
         domain_type: vmm
         vm_provider: "{{ vm_provider }}"
+        resolution_immediacy: immediate
         state: present
 
     - name: Create Bridge Domain Subnet For Load Balancer
