@@ -127,6 +127,7 @@
         domain: "{{ vmm_domain }}"
         domain_type: vmm
         vm_provider: "{{ vm_provider }}"
+        deploy_immediacy: immediate
         resolution_immediacy: immediate
         state: present
 
@@ -142,6 +143,7 @@
         domain: "{{ vmm_domain }}"
         domain_type: vmm
         vm_provider: "{{ vm_provider }}"
+        deploy_immediacy: immediate
         resolution_immediacy: immediate
         state: present
 
@@ -157,6 +159,7 @@
         domain: "{{ vmm_domain }}"
         domain_type: vmm
         vm_provider: "{{ vm_provider }}"
+        deploy_immediacy: immediate
         resolution_immediacy: immediate
         state: present
 
