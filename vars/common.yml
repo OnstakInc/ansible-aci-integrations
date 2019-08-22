@@ -21,7 +21,8 @@
 # app_epg: APP-EPG
 # db_epg: DB-EPG
 
-# vmm_domain: vcenter03-ACI-vDS
+# vmm_domain_01: vcenter03-ACI-DVS
+# vmm_domain_02: HX-ACI-DVS
 # vm_provider: vmware
 
 # description: Managed By UCSD
@@ -44,7 +45,8 @@ lb_epg: LB-EPG
 app_epg: APP-EPG
 db_epg: DB-EPG
 
-vmm_domain: vcenter03-ACI-vDS
+vmm_domain_01: vcenter03-ACI-DVS
+vmm_domain_02: HX-ACI-DVS
 vm_provider: vmware
 
 description: Managed By Ansible

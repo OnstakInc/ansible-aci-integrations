@@ -115,7 +115,7 @@
         preferred_group: yes
         state: present
 
-    - name: Associate VMM Domain With Load Balancer EPG
+    - name: Associate HX VMM Domain With Load Balancer EPG
       aci_epg_to_domain:
         hostname: "{{ aci_host }}"
         username: "{{ username }}"
@@ -124,14 +124,14 @@
         tenant: "{{ tenant }}"
         ap: "{{ application_profile }}"
         epg: "{{ lb_epg }}"
-        domain: "{{ vmm_domain }}"
+        domain: "{{ vmm_domain_01 }}"
         domain_type: vmm
         vm_provider: "{{ vm_provider }}"
         deploy_immediacy: immediate
         resolution_immediacy: immediate
         state: present
 
-    - name: Associate VMM Domain With Application Server EPG
+    - name: Associate HX VMM Domain With Application Server EPG
       aci_epg_to_domain:
         hostname: "{{ aci_host }}"
         username: "{{ username }}"
@@ -140,14 +140,14 @@
         tenant: "{{ tenant }}"
         ap: "{{ application_profile }}"
         epg: "{{ app_epg }}"
-        domain: "{{ vmm_domain }}"
+        domain: "{{ vmm_domain_01 }}"
         domain_type: vmm
         vm_provider: "{{ vm_provider }}"
         deploy_immediacy: immediate
         resolution_immediacy: immediate
         state: present
 
-    - name: Associate VMM Domain With Database Server EPG
+    - name: Associate HX VMM Domain With Database Server EPG
       aci_epg_to_domain:
         hostname: "{{ aci_host }}"
         username: "{{ username }}"
@@ -156,7 +156,55 @@
         tenant: "{{ tenant }}"
         ap: "{{ application_profile }}"
         epg: "{{ db_epg }}"
-        domain: "{{ vmm_domain }}"
+        domain: "{{ vmm_domain_01 }}"
+        domain_type: vmm
+        vm_provider: "{{ vm_provider }}"
+        deploy_immediacy: immediate
+        resolution_immediacy: immediate
+        state: present
+
+    - name: Associate VCenter03 VMM Domain With Load Balancer EPG
+      aci_epg_to_domain:
+        hostname: "{{ aci_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: no
+        tenant: "{{ tenant }}"
+        ap: "{{ application_profile }}"
+        epg: "{{ lb_epg }}"
+        domain: "{{ vmm_domain_02 }}"
+        domain_type: vmm
+        vm_provider: "{{ vm_provider }}"
+        deploy_immediacy: immediate
+        resolution_immediacy: immediate
+        state: present
+
+    - name: Associate VCenter03 VMM Domain With Application Server EPG
+      aci_epg_to_domain:
+        hostname: "{{ aci_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: no
+        tenant: "{{ tenant }}"
+        ap: "{{ application_profile }}"
+        epg: "{{ app_epg }}"
+        domain: "{{ vmm_domain_02 }}"
+        domain_type: vmm
+        vm_provider: "{{ vm_provider }}"
+        deploy_immediacy: immediate
+        resolution_immediacy: immediate
+        state: present
+
+    - name: Associate VCenter03 VMM Domain With Database Server EPG
+      aci_epg_to_domain:
+        hostname: "{{ aci_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: no
+        tenant: "{{ tenant }}"
+        ap: "{{ application_profile }}"
+        epg: "{{ db_epg }}"
+        domain: "{{ vmm_domain_02 }}"
         domain_type: vmm
         vm_provider: "{{ vm_provider }}"
         deploy_immediacy: immediate
