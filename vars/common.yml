@@ -1,7 +1,7 @@
 ---
-aci_host: <aci-hostname>
-username: <your-username>
-password: <your-password>
+# aci_host: <aci-hostname>
+# username: <your-username>
+# password: <your-password>
 
 tenant: UCSD-ACI-Integrations
 vrf: UCSD-ACI-VRF
