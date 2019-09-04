@@ -3,9 +3,9 @@
 # username: <your-username>
 # password: <your-password>
 
-tenant: Ansible-ACI-Integrations
-vrf: Ansible-ACI-VRF
-application_profile: Ansible-ACI-AP
+tenant: TEC-Lab
+vrf: TEC-VRF
+application_profile: TEC-AP
 
 lb_bridge_domain: LB-BD
 app_bridge_domain: APP-BD
@@ -25,4 +25,4 @@ vmm_domain_01: vcenter03-ACI-DVS
 vmm_domain_02: HX-ACI-DVS
 vm_provider: vmware
 
-description: Managed By Ansible
+description: Managed By Ansible For TEC
