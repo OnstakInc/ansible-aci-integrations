@@ -27,9 +27,9 @@
 
 # description: Managed By UCSD
 
-tenant: Ansible-ACI-Integrations
-vrf: Ansible-ACI-VRF
-application_profile: Ansible-ACI-AP
+tenant: TEC-Lab
+vrf: TEC-VRF
+application_profile: TEC-AP
 
 lb_bridge_domain: LB-BD
 app_bridge_domain: APP-BD

@@ -222,7 +222,7 @@
         subnet_name: lb-subnet
         gateway: "{{ lb_bridge_domain_subnet }}"
         mask: 24
-        description: Managed By Ansible
+        description: "{{ description }}"
         scope: public
         route_profile_l3_out: "{{ bridge_domain_l3_out }}"
         state: present
@@ -238,7 +238,7 @@
         subnet_name: app-subnet
         gateway: "{{ app_bridge_domain_subnet }}"
         mask: 24
-        description: Managed By Ansible
+        description: "{{ description }}"
         scope: public
         route_profile_l3_out: "{{ bridge_domain_l3_out }}"
         state: present
@@ -254,7 +254,7 @@
         subnet_name: db-subnet
         gateway: "{{ db_bridge_domain_subnet }}"
         mask: 24
-        description: Managed By Ansible
+        description: "{{ description }}"
         scope: public
         route_profile_l3_out: "{{ bridge_domain_l3_out }}"
         state: present
