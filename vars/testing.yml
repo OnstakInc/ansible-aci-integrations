@@ -25,4 +25,4 @@ vmm_domain_01: vcenter03-ACI-DVS
 vmm_domain_02: HX-ACI-DVS
 vm_provider: vmware
 
-description: Managed By Ansible For HX Lab
+description: Managed By Ansible For Onstak Lab
