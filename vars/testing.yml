@@ -3,7 +3,7 @@
 # username: <your-username>
 # password: <your-password>
 
-tenant: HX-Lab
+tenant: Onstak-Lab
 vrf: HX-VRF
 application_profile: HX-AP
 
