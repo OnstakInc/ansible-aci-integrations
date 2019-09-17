@@ -4,8 +4,8 @@
 # password: <your-password>
 
 tenant: Onstak-Lab
-vrf: HX-VRF
-application_profile: HX-AP
+vrf: Onstak-VRF
+application_profile: Onstak-AP
 
 lb_bridge_domain: LB-BD
 app_bridge_domain: APP-BD
