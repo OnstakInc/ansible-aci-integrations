@@ -1,0 +1,28 @@
+---
+# aci_host: <aci-hostname>
+# username: <your-username>
+# password: <your-password>
+
+tenant: HX-Lab
+vrf: HX-VRF
+application_profile: HX-AP
+
+lb_bridge_domain: LB-BD
+app_bridge_domain: APP-BD
+db_bridge_domain: DB-BD
+
+lb_bridge_domain_subnet: 172.16.167.254
+app_bridge_domain_subnet: 172.16.168.254
+db_bridge_domain_subnet: 172.16.169.254
+
+bridge_domain_l3_out: L3-OUT
+
+lb_epg: LB-EPG
+app_epg: APP-EPG
+db_epg: DB-EPG
+
+vmm_domain_01: vcenter03-ACI-DVS
+vmm_domain_02: HX-ACI-DVS
+vm_provider: vmware
+
+description: Managed By Ansible For HX Lab
